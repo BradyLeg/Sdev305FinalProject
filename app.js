@@ -59,7 +59,7 @@ app.post('/thank-you', (req, res) => {
         enddate: req.body.enddate,
         urgencey: req.body.urgencey
     };
-
+    console.log(userTasks);
     res.render('thank-you.ejs', { userTasks });
 
 })
