@@ -2,11 +2,11 @@
 //Import Libaries
 import express from 'express';
 //Import Database
-//import mariadb from 'mariadb';
+//import mariadb from 'mariadb'; // <--- maria db
 
 
 //Create Connection Management/login
-//const pool = mariadb.createPool({});
+//const pool = mariadb.createPool({}); // <--- maria db
 
 
 //Function to connect
@@ -39,11 +39,38 @@ app.use(express.static('public'));
 //Define a port
 const PORT = 3000;
 
+//Array
+const tasks = [];
+
+
+//Define routes
 app.get('/', (req, res) => {
 
     //Render home page
     res.render('home');    
 })
+
+app.post('/thankyou', (req, res) => {
+
+    const userTasks = 
+    {
+        fname: req.body.fname,
+        lname: req.body.lname,
+        task: req.body.task,
+        description: req.body.description,
+        startdate: req.body.startdate,
+        enddate: req.body.enddate,
+        urgencey: req.body.urgencey
+    };
+
+    res.render('thankyou.ejs', { userTasks });
+
+
+})
+
+
+
+
 
 //Send port in Console.
 app.listen(PORT, () => {
