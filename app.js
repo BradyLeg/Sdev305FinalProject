@@ -4,8 +4,12 @@ import express from 'express';
 //Import Database
 import mariadb from 'mariadb';
 
+
+//Create Connection Management/login
 const pool = mariadb.createPool({});
 
+
+//Function to connect
 async function connect()
 {
     try 
@@ -19,3 +23,13 @@ async function connect()
         console.log(`Error connecting to the data base${err}`);       
     }
 }
+
+//Create express app
+const app = express();
+
+//Middleware
+app.use(express.urlencoded({ extended: true }));
+
+//Set view engine for app
+app.set('view engine', 'ejs');
+
