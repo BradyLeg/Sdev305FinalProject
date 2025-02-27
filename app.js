@@ -10,17 +10,14 @@ import express from 'express';
 
 
 //Function to connect
-async function connect()
-{
-    try 
-    {
+async function connect() {
+    try {
         const conn = await pool.getConnection();
         console.log('Connect to database')
         return conn;
     }
-    catch (err)
-    {
-        console.log(`Error connecting to the data base${err}`);       
+    catch (err) {
+        console.log(`Error connecting to the data base${err}`);
     }
 }
 
@@ -47,12 +44,12 @@ const tasks = [];
 app.get('/', (req, res) => {
 
     //Render home page
-    res.render('home');    
+    res.render('home');
 })
 
 app.post('/thank-you', (req, res) => {
 
-    const userTasks = 
+    const userTasks =
     {
         fname: req.body.fname,
         lname: req.body.lname,
@@ -64,7 +61,6 @@ app.post('/thank-you', (req, res) => {
     };
 
     res.render('thank-you.ejs', { userTasks });
-
 
 })
 
