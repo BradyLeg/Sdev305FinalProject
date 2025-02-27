@@ -33,3 +33,19 @@ app.use(express.urlencoded({ extended: true }));
 //Set view engine for app
 app.set('view engine', 'ejs');
 
+//serve static files
+app.use(express.static('public'));
+
+//Define a port
+const PORT = 3000;
+
+app.get('/', (req, res) => {
+
+    //Render home page
+    res.render('home');    
+})
+
+//Send port in Console.
+app.listen(PORT, () => {
+    console.log(`Server is running at http://localhost:${PORT}`);
+});
