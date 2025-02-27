@@ -63,7 +63,7 @@ app.post('/thank-you', (req, res) => {
         urgencey: req.body.urgencey
     };
 
-    res.render('thank-you', { userTasks });
+    res.render('thank-you.ejs', { userTasks });
 
 
 })
