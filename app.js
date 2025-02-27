@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
     res.render('home');    
 })
 
-app.post('/thankyou', (req, res) => {
+app.post('/thank-you', (req, res) => {
 
     const userTasks = 
     {
@@ -63,7 +63,7 @@ app.post('/thankyou', (req, res) => {
         urgencey: req.body.urgencey
     };
 
-    res.render('thankyou.ejs', { userTasks });
+    res.render('thank-you', { userTasks });
 
 
 })
