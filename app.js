@@ -2,11 +2,11 @@
 //Import Libaries
 import express from 'express';
 //Import Database
-import mariadb from 'mariadb';
+//import mariadb from 'mariadb';
 
 
 //Create Connection Management/login
-const pool = mariadb.createPool({});
+//const pool = mariadb.createPool({});
 
 
 //Function to connect
