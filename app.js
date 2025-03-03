@@ -1,9 +1,8 @@
+
 //Import Libaries
 import express from 'express';
 //Import Database
 import mariadb from 'mariadb'; // <--- maria db
-//Import Services
-import { validateFields } from './services/validation.js';
 
 //
 import dotenv from 'dotenv';
@@ -58,6 +57,7 @@ app.get('/', (req, res) => {
 
 app.post('/thank-you', async (req, res) => {
 
+    //
     const userTasks =
     {
         fname: req.body.fname,
@@ -70,24 +70,30 @@ app.post('/thank-you', async (req, res) => {
     };
     console.log(userTasks);
 
-    //Validation
-    const result = validateFields(userTasks)
-    if (!result.isValid) {
-        console.log(result.errors);
-        res.send(result.errors);
-        return;
-    }
+    //
+    const errors = [];
 
+    //
+    const conn = await connect();
+
+    const insertQuery = await conn.query(`INSERT INTO task(
+        fname, 
+        lname,
+        description,
+        startdate,
+        enddate,
+        urgency)
+        VALUES (?,?,?,?,?,?)`,
+        [userTasks.fname,
+        userTasks.lname,
+        userTasks.description,
+        userTasks.startdate,
+        userTasks.enddate,
+        userTasks.urgency]);
 
     res.render('thank-you', { userTasks });
 
 })
-
-//Navigate back to home from Thank you page
-app.get("/home", (req, res) => {
-    res.render("home.ejs")
-})
-
 
 
 //Send port in Console.
