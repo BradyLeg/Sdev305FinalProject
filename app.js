@@ -75,6 +75,13 @@ app.post('/thank-you', (req, res) => {
 
 })
 
+//Navigate back to home from Thank you page
+app.get("/home", (req, res) => 
+{
+    res.render("home.ejs")
+})
+
+
 
 //Send port in Console.
 app.listen(PORT, () => {
