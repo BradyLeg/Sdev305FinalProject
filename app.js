@@ -6,6 +6,7 @@ import mariadb from 'mariadb'; // <--- maria db
 
 //
 import dotenv from 'dotenv';
+import { validateFields } from './services/validation.js';
 
 dotenv.config();
 
@@ -73,7 +74,16 @@ app.post('/thank-you', async (req, res) => {
     //
     const errors = [];
 
-    //
+    //Validation
+    const result = validateFields(userTasks);
+    if(!result.isValid)
+    {
+        console.log(result.errors);
+        res.send(result.errors);
+        return;
+    }
+
+
     const conn = await connect();
 
     const insertQuery = await conn.query(`INSERT INTO task(
