@@ -101,14 +101,15 @@ app.post('/thank-you', (req, res) => {
         res.send(errors);
         return;
     } else {
-        const vaildOptions = ["yes", "no"];
+        const vaildOptions = ["Yes", "No"];
         if (!vaildOptions.includes(userTasks.urgency)) {
             errors.push("Urgency Spoofed");
+            res.send(errors);
+            return;
         }
-        return;
     }
 
-    res.render('thank-you.ejs', { userTasks });
+    res.render('thank-you', { userTasks });
 
 })
 
