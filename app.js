@@ -1,8 +1,9 @@
-
 //Import Libaries
 import express from 'express';
 //Import Database
 import mariadb from 'mariadb'; // <--- maria db
+//Import Services
+import { validateFields } from './services/validation.js';
 
 //
 import dotenv from 'dotenv';
@@ -69,76 +70,24 @@ app.post('/thank-you', async (req, res) => {
     };
     console.log(userTasks);
 
-    //
-    const errors = [];
-
-    if (!userTasks.fname || userTasks.fname.trim() === "") {
-        errors.push("First name is required");
-        res.send(errors);
+    //Validation
+    const result = validateFields(userTasks)
+    if (!result.isValid) {
+        console.log(result.errors);
+        res.send(result.errors);
         return;
     }
 
-    if (!userTasks.lname || userTasks.lname.trim() === "") {
-        errors.push("Last name is required");
-        res.send(errors);
-        return;
-    }
-
-    if (!userTasks.task || userTasks.task.trim() === "") {
-        errors.push("Task name is required");
-        res.send(errors);
-        return;
-    }
-
-    //Add validation that checks to see if the start date is before end date
-
-
-    if (!userTasks.startdate) {
-        errors.push("Start date is required");
-        res.send(errors);
-        return;
-    }
-
-    if (!userTasks.enddate) {
-        errors.push("End date is required");
-        res.send(errors);
-        return;
-    }
-
-    if (!userTasks.urgency) {
-        errors.push("Urgency type needs to be selected");
-        res.send(errors);
-        return;
-    } else {
-        const vaildOptions = ["Yes", "No"];
-        if (!vaildOptions.includes(userTasks.urgency)) {
-            errors.push("Urgency Spoofed");
-            res.send(errors);
-            return;
-        }
-    }
-
-    //
-    const conn = await connect();
-
-    const insertQuery = await conn.query(`INSERT INTO task(
-        fname, 
-        lname,
-        description,
-        startdate,
-        enddate,
-        urgency)
-        VALUES (?,?,?,?,?,?)`,
-        [userTasks.fname,
-        userTasks.lname,
-        userTasks.description,
-        userTasks.startdate,
-        userTasks.enddate,
-        userTasks.urgency]);
 
     res.render('thank-you', { userTasks });
 
 })
+
+//Navigate back to home from Thank you page
+app.get("/home", (req, res) => {
+    res.render("home.ejs")
+})
+
 
 
 //Send port in Console.
