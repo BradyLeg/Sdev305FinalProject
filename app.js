@@ -57,7 +57,6 @@ app.get('/', (req, res) => {
 
 app.post('/thank-you', async (req, res) => {
 
-    //
     const userTasks =
     {
         fname: req.body.fname,
