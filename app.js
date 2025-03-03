@@ -39,7 +39,6 @@ const PORT = 3000;
 //Array
 const tasks = [];
 
-
 //Define routes
 app.get('/', (req, res) => {
 
@@ -57,15 +56,61 @@ app.post('/thank-you', (req, res) => {
         description: req.body.description,
         startdate: req.body.startdate,
         enddate: req.body.enddate,
-        urgencey: req.body.urgencey
+        urgency: req.body.urgency
     };
     console.log(userTasks);
+
+    //
+    const errors = [];
+
+    if (!userTasks.fname || userTasks.fname.trim() === "") {
+        errors.push("First name is required");
+        res.send(errors);
+        return;
+    }
+
+    if (!userTasks.lname || userTasks.lname.trim() === "") {
+        errors.push("Last name is required");
+        res.send(errors);
+        return;
+    }
+
+    if (!userTasks.task || userTasks.task.trim() === "") {
+        errors.push("Task name is required");
+        res.send(errors);
+        return;
+    }
+
+    //Add validation that checks to see if the start date is before end date
+
+
+    if (!userTasks.startdate) {
+        errors.push("Start date is required");
+        res.send(errors);
+        return;
+    }
+
+    if (!userTasks.enddate) {
+        errors.push("End date is required");
+        res.send(errors);
+        return;
+    }
+
+    if (!userTasks.urgency) {
+        errors.push("Urgency type needs to be selected");
+        res.send(errors);
+        return;
+    } else {
+        const vaildOptions = ["yes", "no"];
+        if (!vaildOptions.includes(userTasks.urgency)) {
+            errors.push("Urgency Spoofed");
+        }
+        return;
+    }
+
     res.render('thank-you.ejs', { userTasks });
 
 })
-
-
-
 
 
 //Send port in Console.
