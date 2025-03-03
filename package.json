@@ -10,8 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
+    "mariadb": "^3.4.0",
     "nodemon": "^3.1.9"
   },
   "repository": {
@@ -22,6 +24,5 @@
     "url": "https://github.com/BradyLeg/Sdev305FinalProject/issues"
   },
   "homepage": "https://github.com/BradyLeg/Sdev305FinalProject#readme",
-  "devDependencies": {},
   "description": ""
 }
