@@ -2,22 +2,31 @@
 //Import Libaries
 import express from 'express';
 //Import Database
-//import mariadb from 'mariadb'; // <--- maria db
+import mariadb from 'mariadb'; // <--- maria db
 
+//
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 //Create Connection Management/login
-//const pool = mariadb.createPool({}); // <--- maria db
+const pool = mariadb.createPool({
+    host: process.env.DB_Host,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    port: process.env.DB_PORT
+}); // <--- maria db
 
 
 //Function to connect
 async function connect() {
     try {
         const conn = await pool.getConnection();
-        console.log('Connect to database')
+        console.log('Connected to database')
         return conn;
-    }
-    catch (err) {
-        console.log(`Error connecting to the data base${err}`);
+    } catch (err) {
+        console.log(`Error connecting to the database ${err}`);
     }
 }
 
@@ -34,7 +43,7 @@ app.set('view engine', 'ejs');
 app.use(express.static('public'));
 
 //Define a port
-const PORT = 3000;
+const PORT = process.env.APP_PORT || 3000;
 
 //Array
 const tasks = [];
@@ -46,7 +55,7 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
-app.post('/thank-you', (req, res) => {
+app.post('/thank-you', async (req, res) => {
 
     const userTasks =
     {
@@ -108,6 +117,24 @@ app.post('/thank-you', (req, res) => {
             return;
         }
     }
+
+    //
+    const conn = await connect();
+
+    const insertQuery = await conn.query(`INSERT INTO task(
+        fname, 
+        lname,
+        description,
+        startdate,
+        enddate,
+        urgency)
+        VALUES (?,?,?,?,?,?)`,
+        [userTasks.fname,
+        userTasks.lname,
+        userTasks.description,
+        userTasks.startdate,
+        userTasks.enddate,
+        userTasks.urgency]);
 
     res.render('thank-you', { userTasks });
 
