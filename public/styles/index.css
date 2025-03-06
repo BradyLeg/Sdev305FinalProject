@@ -14,6 +14,11 @@ button {
     margin: 1%;
 }
 
+.err {
+    display: none;
+    color: firebrick;
+}
+
 #main,
 #home {
     display: flex;
