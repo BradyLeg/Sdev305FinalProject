@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Week Calendar</title>
+
+    <link rel="stylesheet" href="styles/main.css">
     <link href="/styles/calendarStyles.css" rel="stylesheet">
 </head>
 <body>
-    <h1>Weekly Task Calendar</h1>
+    <h1 class="calendar-header">Weekly Task Calendar</h1>
     <div class="calendar">
         <% const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
         <% days.forEach(day => { %>
@@ -22,6 +24,9 @@
             </div>
         <% }); %>
     </div>
+    <form action="home" method="get" class="calendar-button">
+        <button href="#" role="button"> Back to Home page</button>
+    </form>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const taskElements = document.querySelectorAll(".day p");

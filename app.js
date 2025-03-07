@@ -94,14 +94,16 @@ app.post('/thank-you', async (req, res) => {
     const insertQuery = await conn.query(`INSERT INTO task(
         fname, 
         lname,
+        task,
         description,
         startdate,
         enddate,
         tasktime,
         urgency)
-        VALUES (?,?,?,?,?,?,?)`,
+        VALUES (?,?,?,?,?,?,?,?)`,
         [userTasks.fname,
         userTasks.lname,
+        userTasks.task,
         userTasks.description,
         userTasks.startdate,
         userTasks.enddate,

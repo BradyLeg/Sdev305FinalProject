@@ -16,3 +16,38 @@
 {
     background-color: yellow;
 }
+
+.calendar-button
+{
+    text-align: center;
+}
+
+.calendar-header
+{
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .calendar
+    {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .day
+    {
+        width: 250px;
+        height: auto;
+    }
+
+    .calendar-button
+    {
+        text-align: center;
+    }
+
+    .calendar-header
+    {
+        text-align: center;
+    }
+}

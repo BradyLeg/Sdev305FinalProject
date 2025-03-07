@@ -1,0 +1,14 @@
+/*Main styles*/
+html {
+    background-color: lightcyan;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+button {
+    color: aliceblue;
+    background-color: darkolivegreen;
+}
+
+button {
+    margin: 1%;
+}
