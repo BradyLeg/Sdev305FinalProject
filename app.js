@@ -1,4 +1,3 @@
-
 //Import Libaries
 import express from 'express';
 //Import Database
@@ -6,6 +5,7 @@ import mariadb from 'mariadb'; // <--- maria db
 
 //
 import dotenv from 'dotenv';
+
 import { validateFields } from './services/validation.js';
 
 dotenv.config();
@@ -65,7 +65,6 @@ app.get('/calendar', async (req, res) => {
 
 app.post('/thank-you', async (req, res) => {
 
-    //
     const userTasks =
     {
         fname: req.body.fname,
@@ -84,13 +83,11 @@ app.post('/thank-you', async (req, res) => {
 
     //Validation
     const result = validateFields(userTasks);
-    if(!result.isValid)
-    {
+    if (!result.isValid) {
         console.log(result.errors);
         res.send(result.errors);
         return;
     }
-
 
     const conn = await connect();
 
@@ -113,7 +110,18 @@ app.post('/thank-you', async (req, res) => {
 
     res.render('thank-you', { userTasks });
 
-})
+});
+
+app.get('/admin', async (req, res) => {
+
+    const conn = await connect();
+
+    const tasks = await conn.query('SELECT * FROM task;');
+
+    console.log(tasks);
+
+    res.render('admin', { tasks });
+});
 
 
 //Send port in Console.

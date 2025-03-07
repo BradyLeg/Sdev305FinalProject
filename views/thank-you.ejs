@@ -6,21 +6,25 @@
     <title>Document</title>
 </head>
 <body>
-    <h1><%= userTasks.fname %>, your tasks have been enetered successfully!</h1>
 
-    <p>Name: <%= userTasks.fname %> <%= userTasks.lname %></p>
-    <p>Task: <%= userTasks.task %></p>
-    <p>Description: <%= userTasks.description %></p>
-    <p>Start Date: <%= userTasks.startdate %></p>
-    <p>End Date: <%= userTasks.enddate%></p>
-    <p>Urgency: <%= userTasks.urgency %></p>
-    
-    <form action="home" method="get">
-        <button href="#" role="button"> Back to Home page</button>
-    </form>
-    <form action="calendar" method="get">
-        <button hre="#" role="button"> View Calendar page </button>
-    </form>
+    <div id="main">
+        <h1><%= userTasks.fname %>, your tasks have been enetered successfully!</h1>
 
+        <p>Name: <%= userTasks.fname %> <%= userTasks.lname %></p>
+        <p>Task: <%= userTasks.task %></p>
+        <p>Description: <%= userTasks.description %></p>
+        <p>Start Date: <%= userTasks.startdate %></p>
+        <p>End Date: <%= userTasks.enddate%></p>
+        <p>Urgency: <%= userTasks.urgency %></p>
+        
+        <form action="home" method="get">
+            <button href="#" role="button"> Back to Home page</button>
+        </form>
+        
+        <form action="calendar" method="get">
+            <button href="#" role="button"> View Calendar page </button>
+        </form>
+
+    </div>
 </body>
 </html>

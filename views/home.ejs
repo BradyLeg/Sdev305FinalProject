@@ -4,21 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+
+    <link rel="stylesheet" href="styles/index.css">
+
+    <script src="scripts/client-validation.js" defer></script>
 </head>
 <body>
-    <h1>To-do List Form</h1>
-    <form action="thank-you" method="post">
-        <label>First Name: <input name="fname" type="text"></label>
-        <label>Last Name: <input name="lname" type="text"></label>
-        <label>Task: <input name="task" type="text"></label>
-        <label>Start Date: <input name="startdate" type="date"></label>
-        <label>End Date: <input name="enddate" type="date"></label>
-        <label>Time: <input name="tasktime" type="time"></label>
-        <label>Description: <textarea name="description"></textarea></label>
-        <label>Urgent?</label>
-        <input type="radio" name="urgency" value="Yes"> Yes
-        <input type="radio" name="urgency" value="No"> No
-        <button type="submit">Submit</button>
-    </form>
+
+    <div id="main">
+        <form action="thank-you" method="post" id="home">
+           
+            <h1>To-do List Form</h1>
+
+            <label>First Name: <input name="fname" type="text" id="fname"></label>
+
+            <span class="err" id="err-fname">Test</span>
+
+            <label>Last Name: <input name="lname" type="text" id="lname"></label>
+
+            <span class="err" id="err-lname">test</span>
+
+            <label>Task: <input name="task" type="text" id="task"></label>
+
+            <span class="err" id="err-task">test</span>
+
+            <label>Start Date: <input name="startdate" type="date" id="start"></label>
+
+            <span class="err" id="err-start">test</span>
+
+            <label>End Date: <input name="enddate" type="date" id="end"></label>
+
+            <span class="err" id="err-end">test</span>
+
+            <label>Time: <input name="tasktime" type="time"></label>
+
+            <label>Description: <textarea name="description" id="description"></textarea></label>
+
+            <label>Urgent?</label>
+            <input type="radio" name="urgency" value="Yes"> Yes
+
+            <input type="radio" name="urgency" value="No"> No
+
+            <span class="err" id="err-urgency">test</span>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 </body>
 </html>

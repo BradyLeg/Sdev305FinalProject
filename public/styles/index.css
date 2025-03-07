@@ -1,0 +1,53 @@
+/*Main styles*/
+html {
+    background-color: lightcyan;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+button {
+    color: aliceblue;
+    background-color: darkolivegreen;
+}
+
+label,
+button {
+    margin: 1%;
+}
+
+.err {
+    display: none;
+    color: firebrick;
+}
+
+#main,
+#home {
+    display: flex;
+}
+
+#home {
+    background-color: gainsboro;
+}
+
+/*Large screen styles*/
+
+
+/*Medium screen styles*/
+@media (max-width: 720px) {}
+
+/*Mobile screen styles*/
+@media (max-width: 480px) {
+    #main {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    #home {
+        flex-direction: column;
+        justify-content: center;
+        border: 2px, solid, black;
+        padding: 5%;
+    }
+
+}
