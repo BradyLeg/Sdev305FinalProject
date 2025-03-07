@@ -8,6 +8,7 @@ CREATE TABLE task(
     description VARCHAR(255),
     startdate date,
     enddate date,
+    tasktime time,
     urgency VARCHAR(255),
     created_at DATETIME DEFAULT NOW(),
     

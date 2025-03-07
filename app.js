@@ -56,6 +56,13 @@ app.get('/', (req, res) => {
     res.render('home');
 })
 
+//Render Calendar
+app.get('/calendar', async (req, res) => {
+    const conn = await connect();
+    const tasks = await conn.query("SELECT * FROM task");
+    res.render('calendar', { userTasks: tasks });
+});
+
 app.post('/thank-you', async (req, res) => {
 
     //
@@ -67,6 +74,7 @@ app.post('/thank-you', async (req, res) => {
         description: req.body.description,
         startdate: req.body.startdate,
         enddate: req.body.enddate,
+        tasktime: req.body.tasktime,
         urgency: req.body.urgency
     };
     console.log(userTasks);
@@ -92,13 +100,15 @@ app.post('/thank-you', async (req, res) => {
         description,
         startdate,
         enddate,
+        tasktime,
         urgency)
-        VALUES (?,?,?,?,?,?)`,
+        VALUES (?,?,?,?,?,?,?)`,
         [userTasks.fname,
         userTasks.lname,
         userTasks.description,
         userTasks.startdate,
         userTasks.enddate,
+        userTasks.tasktime,
         userTasks.urgency]);
 
     res.render('thank-you', { userTasks });

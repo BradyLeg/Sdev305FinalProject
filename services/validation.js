@@ -25,6 +25,11 @@ export function validateFields(data)
         errors.push("End date is required");
     }
 
+    if(!data.tasktime)
+    {
+        errors.push("Task time required")
+    }
+
     if (!data.urgency) {
         errors.push("Urgency type needs to be selected");
     } else {
@@ -33,6 +38,8 @@ export function validateFields(data)
             errors.push("Urgency Spoofed");
         }
     }
+
+    
 
     return {
         isValid: errors.length === 0,

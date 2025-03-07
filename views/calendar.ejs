@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="calendar.ejs" rel="stylesheet">
+    <title>Week Calendar</title>
+    <link href="/styles/calendarStyles.css" rel="stylesheet">
 </head>
 <body>
-    
+    <h1>Weekly Task Calendar</h1>
+    <div class="calendar">
+        <% const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]; %>
+        <% days.forEach(day => { %>
+            <div class="day">
+                <h3><%= day %></h3>
+                <% userTasks.forEach(task => { %>
+                    <% let taskDate = new Date(task.startdate); %>
+                    <% if (days[taskDate.getDay()] === day) { %>
+                        <p><%= task.task %> - <%= task.tasktime %></p>
+                    <% } %>
+                <% }) %>
+            </div>
+        <% }); %>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const taskElements = document.querySelectorAll(".day p");
+            taskElements.forEach(el => {
+                el.classList.add("highlight");
+            });
+        });
+    </script>
 </body>
+
+
 </html>
