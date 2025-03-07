@@ -12,46 +12,80 @@
 </head>
 <body>
 
-    <div id="main">
-        <form action="thank-you" method="post" id="home">
-           
-            <h1>To-do List Form</h1>
+    <div id="main">                                                             <!-- Start Of Main Div -->
+        
+        <form action="thank-you" method="post" id="home">                         <!-- Start of Form -->
 
+
+            <!--H1 Tag-->
+            <h1>To-do List Form</h1>
+            <!-- End H1 Tag-->
+
+
+            <!-- First Name Section -->
             <label>First Name: <input name="fname" type="text" id="fname"></label>
 
             <span class="err" id="err-fname">First name is required</span>
+            <!-- End First Name Section --> 
 
+
+            <!-- Last Name Section -->
             <label>Last Name: <input name="lname" type="text" id="lname"></label>
 
             <span class="err" id="err-lname">Last name is required</span>
+            <!-- End Last Name Section -->
 
+
+            <!-- Task Section -->
             <label>Task: <input name="task" type="text" id="task"></label>
 
             <span class="err" id="err-task">Task title is required</span>
+            <!-- End Task Section -->
 
+
+            <!-- Start Date Section -->
             <label>Start Date: <input name="startdate" type="date" id="start"></label>
 
             <span class="err" id="err-start">Start date is required</span>
+            <!-- End Start Date Section -->
 
+            <!-- End Date Section -->
             <label>End Date: <input name="enddate" type="date" id="end"></label>
 
             <span class="err" id="err-end">End date is required</span>
+            <!-- End End Date Section -->
 
+
+            <!-- Task-Time Section -->
             <label>Time: <input name="tasktime" type="time" id="tasktime"></label>
-
+            
             <span class="err" id="err-time">Time is required</span>
+            <!-- End Task-Time Section -->
 
+
+            <!-- Description Section -->
             <label>Description: <textarea name="description" id="description"></textarea></label>
+            <!-- End Description Section -->
 
+
+            <!-- Urgencey Section -->
             <label>Urgent?</label>
             <input type="radio" name="urgency" value="Yes"> Yes
-
             <input type="radio" name="urgency" value="No"> No
 
-            <span class="err" id="err-urgency">Please select one of the urgency options</span>
 
+            <span class="err" id="err-urgency">Please select one of the urgency options</span>
+            <!-- End Urgencey Section -->
+
+
+            <!-- Submit button -->
             <button type="submit">Submit</button>
-        </form>
-    </div>
+            <!-- End Submit button -->
+
+            
+        </form>                                                          <!-- End of Form -->        
+
+    </div>                                                             <!-- End Of Main Div -->
+   
 </body>
 </html>
