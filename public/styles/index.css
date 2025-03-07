@@ -10,7 +10,8 @@ button {
 }
 
 label,
-button {
+button,
+span {
     margin: 1%;
 }
 
