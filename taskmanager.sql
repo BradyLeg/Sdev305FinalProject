@@ -5,6 +5,7 @@ CREATE TABLE task(
 	id INT auto_increment,
     fname VARCHAR(255),
     lname VARCHAR(255),
+    task VARCHAR(255),
     description VARCHAR(255),
     startdate date,
     enddate date,
