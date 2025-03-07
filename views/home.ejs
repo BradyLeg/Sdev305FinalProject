@@ -24,36 +24,42 @@
 
             <!-- First Name Section -->
             <label>First Name: <input name="fname" type="text" id="fname"></label>
-            <span class="err" id="err-fname">Test</span>
+
+            <span class="err" id="err-fname">First name is required</span>
             <!-- End First Name Section --> 
 
 
             <!-- Last Name Section -->
             <label>Last Name: <input name="lname" type="text" id="lname"></label>
-            <span class="err" id="err-lname">test</span>
+
+            <span class="err" id="err-lname">Last name is required</span>
             <!-- End Last Name Section -->
 
 
             <!-- Task Section -->
             <label>Task: <input name="task" type="text" id="task"></label>
-            <span class="err" id="err-task">test</span>
+
+            <span class="err" id="err-task">Task title is required</span>
             <!-- End Task Section -->
 
 
             <!-- Start Date Section -->
             <label>Start Date: <input name="startdate" type="date" id="start"></label>
-            <span class="err" id="err-start">test</span>
-            <!-- End Start Date Section -->
 
+            <span class="err" id="err-start">Start date is required</span>
+            <!-- End Start Date Section -->
 
             <!-- End Date Section -->
             <label>End Date: <input name="enddate" type="date" id="end"></label>
-            <span class="err" id="err-end">test</span>
+
+            <span class="err" id="err-end">End date is required</span>
             <!-- End End Date Section -->
 
 
             <!-- Task-Time Section -->
-            <label>Time: <input name="tasktime" type="time"></label>
+            <label>Time: <input name="tasktime" type="time" id="tasktime"></label>
+            
+            <span class="err" id="err-time">Time is required</span>
             <!-- End Task-Time Section -->
 
 
@@ -66,7 +72,9 @@
             <label>Urgent?</label>
             <input type="radio" name="urgency" value="Yes"> Yes
             <input type="radio" name="urgency" value="No"> No
-            <span class="err" id="err-urgency">test</span>
+
+
+            <span class="err" id="err-urgency">Please select one of the urgency options</span>
             <!-- End Urgencey Section -->
 
 

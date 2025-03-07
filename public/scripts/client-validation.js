@@ -9,6 +9,7 @@ document.getElementById("home").onsubmit = () => {
     let task = document.getElementById('task').value.trim();
     let start = document.getElementById('start').value.trim();
     let end = document.getElementById('end').value.trim();
+    let time = document.getElementById('tasktime').value.trim();
     let urgency = document.getElementsByName("urgency");
 
     if (fname === "") {
@@ -33,6 +34,11 @@ document.getElementById("home").onsubmit = () => {
 
     if (end === "") {
         document.getElementById('err-end').style.display = "block";
+        isValid = false
+    }
+
+    if (time === "") {
+        document.getElementById('err-time').style.display = "block";
         isValid = false
     }
 
