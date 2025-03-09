@@ -16,24 +16,32 @@
                 <% userTasks.forEach(task => { %>
                     <% let taskDate = new Date(task.startdate); %>
                     <% if (days[taskDate.getDay()] === day) { %>
-                        <p><%= task.task %> - <%= task.tasktime %></p>
+                        <div class="task-container">
+                            <!-- Task Name and Show Details Button -->
+                            <p class="task-item">
+                                <%= task.task %> - <%= task.tasktime %>
+                                <button class="show-details-btn" onclick="toggleTaskDetails(this)">Show Details</button>
+                            </p>
+                            
+                            <!-- Hidden Task Details -->
+                            <div class="task-details">
+                                <p><strong>Description:</strong> <%= task.description || "No details provided" %></p>
+                                <p><strong>Start Date:</strong> <%= task.startdate %></p>
+                                <p><strong>End Date:</strong> <%= task.enddate %></p>
+                                <p><strong>Urgency:</strong> <%= task.urgency %></p>
+                            </div>
+                        </div>
                     <% } %>
                 <% }) %>
             </div>
         <% }); %>
     </div>
-    <form action="home" method="get" class="calendar-button">
-        <button href="#" role="button"> Back to Home page</button>
+    
+    <form action="/" method="get" class="calendar-button">
+        <button role="button"> Back to Home page</button>
     </form>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const taskElements = document.querySelectorAll(".day p");
-            taskElements.forEach(el => {
-                el.classList.add("highlight");
-            });
-        });
-    </script>
+
+    <script src="/scripts/CalendarViewHighlight.js"></script>
+    <script src="/scripts/toggleTaskCalendarView.js"></script>
 </body>
-
-
 </html>
