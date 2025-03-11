@@ -8,26 +8,32 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Tasks</h1>
+    <div class="admin-page">
+        <h1>Tasks</h1>
 
-    <form action="/" method="get">
-        <button href="#" role="button"> Back to Home page</button>
-    </form>
-
-    <% if (tasks.length > 0) { %>
-        <% for (let i = 0; i < tasks.length; i++) { %>
-            <p><%= tasks[i].id %></p>
-            <p><%= tasks[i].fname %> <%= tasks[i].lname %></p>
-            <p><%= tasks[i].description %></p>
-            <p><%= tasks[i].startdate %></p>
-            <p><%= tasks[i].enddate %></p>
-            <p><%= tasks[i].urgency %></p>
-            <p><%= tasks[i].created_at %></p>
-            <hr>
-        <% } %>
-    <% } else { %>
-        <p>No tasks were found</p>
-    <% } %>
-
+        <form action="/" method="get">
+            <button href="#" role="button"> Back to Home page</button>
+        </form>
+        <div class="admin-styles">
+            <% if (tasks.length > 0) { %>
+                <% for (let i = 0; i < tasks.length; i++) { %>
+                    <div class="admin-backer">
+                    <p><strong>Task-Number: </strong><%= tasks[i].id %></p>
+                    <p><strong>User-Name: </strong><%= tasks[i].fname %> <%= tasks[i].lname %></p>
+                    <p><strong>User-Task: </strong><%= tasks[i].task %></p>
+                    <p><strong>User-Task-Description: </strong><br><%= tasks[i].description %></p>
+                    <p><strong>User-Start-Date: </strong><%= new Date(tasks[i].startdate).toLocaleDateString("en-US") %></p>
+                    <p><strong>User-End-Date: </strong><%= new Date(tasks[i].enddate).toLocaleDateString("en-US") %></p>
+                    <p><strong>User-Task-Time: </strong><%= tasks[i].tasktime %></p>
+                    <p><strong>User-Urgency-Level: </strong><%= tasks[i].urgency %></p>
+                    <p><strong>Time-Of-Creation: </strong><%= new Date(tasks[i].created_at).toLocaleDateString("en-US") %></p>
+                    <hr>
+                    </div>
+                <% } %>
+            <% } else { %>
+                <p>No tasks were found</p>
+            <% } %>
+        </div>
+    </div>
 </body>
 </html>
