@@ -1,8 +1,3 @@
-label,
-span {
-    margin: 1%;
-}
-
 .err {
     display: none;
     color: firebrick;
@@ -18,13 +13,7 @@ span {
 }
 
 /*Large screen styles*/
-
-
-/*Medium screen styles*/
-@media (max-width: 720px) {}
-
-/*Mobile screen styles*/
-@media (max-width: 480px) {
+@media (min-width: 721px) {
     #main {
         flex-direction: column;
         justify-content: space-between;
@@ -37,6 +26,35 @@ span {
         justify-content: center;
         border: 2px, solid, black;
         padding: 5%;
+        width: 30%;
+    }
+
+    label,
+    span {
+        margin: 2%;
+    }
+}
+
+
+/*Mobile and medium screen styles*/
+@media (max-width: 720px) {
+    #main {
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+    }
+
+    #home {
+        flex-direction: column;
+        justify-content: center;
+        border: 2px, solid, black;
+        padding: 5%;
+    }
+
+    label,
+    span {
+        margin: 1%;
     }
 
 }
