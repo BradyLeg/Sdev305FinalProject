@@ -8,32 +8,44 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="admin-page">
+
+    <div class="admin-page">                                        <!-- Start Of Main Div -->
         <h1>Tasks</h1>
 
+        <!-- Start of Return to home Button -->
         <form action="/" method="get">
             <button href="#" role="button"> Back to Home page</button>
         </form>
+        <!-- End of Return to home Button -->
+
+        <!-- Start Of User-Details for Admin Page -->
         <div class="admin-styles">
             <% if (tasks.length > 0) { %>
                 <% for (let i = 0; i < tasks.length; i++) { %>
+
+                    <!-- Start of Each Individual Task Card -->
                     <div class="admin-backer">
-                    <p><strong>Task-Number: </strong><%= tasks[i].id %></p>
-                    <p><strong>User-Name: </strong><%= tasks[i].fname %> <%= tasks[i].lname %></p>
-                    <p><strong>User-Task: </strong><%= tasks[i].task %></p>
-                    <p><strong>User-Task-Description: </strong><br><%= tasks[i].description %></p>
-                    <p><strong>User-Start-Date: </strong><%= new Date(tasks[i].startdate).toLocaleDateString("en-US") %></p>
-                    <p><strong>User-End-Date: </strong><%= new Date(tasks[i].enddate).toLocaleDateString("en-US") %></p>
-                    <p><strong>User-Task-Time: </strong><%= tasks[i].tasktime %></p>
-                    <p><strong>User-Urgency-Level: </strong><%= tasks[i].urgency %></p>
-                    <p><strong>Time-Of-Creation: </strong><%= new Date(tasks[i].created_at).toLocaleDateString("en-US") %></p>
-                    <hr>
+                        <p><strong>Task-Number: </strong><%= tasks[i].id %></p>
+                        <p><strong>User-Name: </strong><%= tasks[i].fname %> <%= tasks[i].lname %></p>
+                        <p><strong>User-Task: </strong><%= tasks[i].task %></p>
+                        <p><strong>User-Task-Description: </strong><br><%= tasks[i].description %></p>
+                        <p><strong>User-Start-Date: </strong><%= new Date(tasks[i].startdate).toLocaleDateString("en-US") %></p>
+                        <p><strong>User-End-Date: </strong><%= new Date(tasks[i].enddate).toLocaleDateString("en-US") %></p>
+                        <p><strong>User-Task-Time: </strong><%= tasks[i].tasktime %></p>
+                        <p><strong>User-Urgency-Level: </strong><%= tasks[i].urgency %></p>
+                        <p><strong>Time-Of-Creation: </strong><%= new Date(tasks[i].created_at).toLocaleDateString("en-US") %></p>
+                        <hr>
                     </div>
+                    <!-- End of Each Individual Task Card -->
+
                 <% } %>
             <% } else { %>
                 <p>No tasks were found</p>
             <% } %>
         </div>
-    </div>
+        <!-- End Of User-Details for Admin Page -->
+
+    </div>                                                           <!-- End Of Main Div -->
+    
 </body>
 </html>
