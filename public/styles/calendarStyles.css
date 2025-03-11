@@ -44,7 +44,7 @@
 
 .show-details-btn
 {
-    background: #00b34b;
+    background: green;
     color: white;
     border: none;
     padding: 3px 8px;
@@ -55,7 +55,7 @@
 
 .show-details-btn:hover
 {
-    background: #00b34b;
+    background: green;
 }
 
 @media (max-width: 480px)
