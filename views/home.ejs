@@ -42,6 +42,28 @@
             <span class="err" id="err-task">Task title is required</span>
             <!-- End Task Section -->
 
+            <!-- Start Day of Week Section -->
+            <label>Day Assigned:</label>
+            
+            <select name="assignedday" id="day">
+                <option value="none">-- Select an Option --</option>
+                <option value="sunday">Sunday</option>
+                <option value="monday">Monday</option>
+                <option value="tuesday">Tuesday</option>
+                <option value="wednesday">Wednesday</option>
+                <option value="thursday">Thursday</option>
+                <option value="friday">Friday</option>
+                <option value="saturday">Saturday</option>
+            </select>
+
+            <span class="err" id="err-day">Please select a vaild Option</span>
+            <!-- End Day of Week Section -->
+
+            <!-- Start of Task Length -->
+            <label>Task Length (Days):<input type="number" name="tasklength" id="length" min="0"></label>
+
+            <span class="err" id="err-length">Please select a vaild number</span>
+            <!-- Start of Task Length -->
 
             <!-- Start Date Section -->
             <label>Start Date: <input name="startdate" type="date" id="start"></label>
