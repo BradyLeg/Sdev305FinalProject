@@ -112,6 +112,8 @@ app.post('/thank-you', async (req, res) => {
 
     res.render('thank-you', { userTasks });
 
+    conn.release()
+
 });
 
 app.get('/admin', async (req, res) => {
@@ -123,6 +125,8 @@ app.get('/admin', async (req, res) => {
     console.log(tasks);
 
     res.render('admin', { tasks });
+
+    conn.release()
 });
 
 
