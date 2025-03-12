@@ -6,28 +6,32 @@
 
     <title>Document</title>
 
+
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/thank-youStyles.css">
 </head>
 <body>
 
     <div id="main">
-        <h1><%= userTasks.fname %>, your tasks have been enetered successfully!</h1>
+            <h1><%= userTasks.fname %>, your tasks have been enetered successfully!</h1>
 
-        <p>Name: <%= userTasks.fname %> <%= userTasks.lname %></p>
-        <p>Task: <%= userTasks.task %></p>
-        <p>Description: <%= userTasks.description %></p>
-        <p>Day Assigned: <%= userTasks.startday %></p>
-        <p>Task Length: <%= userTasks.tasklength%> day(s)</p>
-        <p>Urgency: <%= userTasks.urgency %></p>
-        
-        <form action="/" method="get">
-            <button href="#" role="button"> Back to Home page</button>
-        </form>
-        
-        <form action="calendar" method="get">
-            <button href="#" role="button"> View Calendar page </button>
-        </form>
-
+            <div id="info">
+                <p>Name: <%= userTasks.fname %> <%= userTasks.lname %></p>
+                <p>Task: <%= userTasks.task %></p>
+                <p>Description: <%= userTasks.description %></p>
+                <p>Day Assigned: <%= userTasks.startday %></p>
+                <p>Task Length: <%= userTasks.tasklength%> day(s)</p>
+                <p>Urgency: <%= userTasks.urgency %></p>
+                
+                <form action="/" method="get">
+                    <button href="#" role="button"> Back to Home page</button>
+                </form>
+                
+                <form action="calendar" method="get">
+                    <button href="#" role="button"> View Calendar page </button>
+                </form>
+            </div>
+        </div>
     </div>
 </body>
 </html>
