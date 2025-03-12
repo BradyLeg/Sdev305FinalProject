@@ -1,5 +1,4 @@
-export function validateFields(data)
-{
+export function validateFields(data) {
     const errors = [];
 
     if (!data.fname || data.fname.trim() === "") {
@@ -14,9 +13,20 @@ export function validateFields(data)
         errors.push("Task name is required");
     }
 
-    //Add validation that checks to see if the start date is before end date
+    if (data.startday === "none") {
+        errors.push("Please select a day");
+    } else {
+        const validDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        if (!validDays.includes(data.startday)) {
+            errors.push("Please select an option for the day");
+        }
+    }
 
+    if (isNaN(data.tasklength) || Number(data.tasklength) <= 0) {
+        errors.push("Please a valid number");
+    }
 
+    //Remove
     if (!data.startdate) {
         errors.push("Start date is required");
     }
@@ -25,10 +35,10 @@ export function validateFields(data)
         errors.push("End date is required");
     }
 
-    if(!data.tasktime)
-    {
+    if (!data.tasktime) {
         errors.push("Task time required")
     }
+    //End of remove
 
     if (!data.urgency) {
         errors.push("Urgency type needs to be selected");
@@ -38,8 +48,6 @@ export function validateFields(data)
             errors.push("Urgency Spoofed");
         }
     }
-
-    
 
     return {
         isValid: errors.length === 0,

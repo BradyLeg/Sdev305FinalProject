@@ -7,10 +7,16 @@ document.getElementById("home").onsubmit = () => {
     let fname = document.getElementById('fname').value.trim();
     let lname = document.getElementById('lname').value.trim();
     let task = document.getElementById('task').value.trim();
+    let day = document.getElementById('day').value;
+    let length = document.getElementById('length').value;
+    let urgency = document.getElementsByName("urgency");
+
+    //Remove
     let start = document.getElementById('start').value.trim();
     let end = document.getElementById('end').value.trim();
     let time = document.getElementById('tasktime').value.trim();
-    let urgency = document.getElementsByName("urgency");
+    //End of remove
+
 
     if (fname === "") {
         document.getElementById('err-fname').style.display = "block";
@@ -27,6 +33,23 @@ document.getElementById("home").onsubmit = () => {
         isValid = false
     }
 
+    if (day === "none") {
+        document.getElementById("err-day").style.display = "block";
+        isValid = false;
+    } else {
+        const validDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+        if (!validDays.includes(day)) {
+            document.getElementById("err-day").style.display = "block";
+            isValid = false;
+        }
+    }
+
+    if (isNaN(length) || Number(length) <= 0) {
+        document.getElementById("err-length").style.display = "block";
+        isValid = false
+    }
+
+    //Remove
     if (start === "") {
         document.getElementById('err-start').style.display = "block";
         isValid = false
@@ -41,6 +64,7 @@ document.getElementById("home").onsubmit = () => {
         document.getElementById('err-time').style.display = "block";
         isValid = false
     }
+    //End of remove
 
     let count = 0;
     for (let i = 0; i < urgency.length; i++) {

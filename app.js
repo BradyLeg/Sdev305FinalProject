@@ -70,12 +70,15 @@ app.post('/thank-you', async (req, res) => {
         fname: req.body.fname,
         lname: req.body.lname,
         task: req.body.task,
-        description: req.body.description,
+        startday: req.body.assignedday,
+        tasklength: Number(req.body.tasklength),
         startdate: req.body.startdate,
         enddate: req.body.enddate,
         tasktime: req.body.tasktime,
+        description: req.body.description,
         urgency: req.body.urgency
     };
+
     console.log(userTasks);
 
     //
