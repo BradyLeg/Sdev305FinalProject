@@ -103,8 +103,8 @@ app.post('/thank-you', async (req, res) => {
         [userTasks.fname,
         userTasks.lname,
         userTasks.description,
-        userTasks.assignedday,
-        userTasks.days,
+        userTasks.startday,
+        userTasks.tasklength,
         userTasks.urgency,
         userTasks.task]);
 
