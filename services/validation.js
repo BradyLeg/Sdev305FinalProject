@@ -26,20 +26,6 @@ export function validateFields(data) {
         errors.push("Please a valid number");
     }
 
-    //Remove
-    if (!data.startdate) {
-        errors.push("Start date is required");
-    }
-
-    if (!data.enddate) {
-        errors.push("End date is required");
-    }
-
-    if (!data.tasktime) {
-        errors.push("Task time required")
-    }
-    //End of remove
-
     if (!data.urgency) {
         errors.push("Urgency type needs to be selected");
     } else {

@@ -11,13 +11,6 @@ document.getElementById("home").onsubmit = () => {
     let length = document.getElementById('length').value;
     let urgency = document.getElementsByName("urgency");
 
-    //Remove
-    let start = document.getElementById('start').value.trim();
-    let end = document.getElementById('end').value.trim();
-    let time = document.getElementById('tasktime').value.trim();
-    //End of remove
-
-
     if (fname === "") {
         document.getElementById('err-fname').style.display = "block";
         isValid = false
@@ -48,23 +41,6 @@ document.getElementById("home").onsubmit = () => {
         document.getElementById("err-length").style.display = "block";
         isValid = false
     }
-
-    //Remove
-    if (start === "") {
-        document.getElementById('err-start').style.display = "block";
-        isValid = false
-    }
-
-    if (end === "") {
-        document.getElementById('err-end').style.display = "block";
-        isValid = false
-    }
-
-    if (time === "") {
-        document.getElementById('err-time').style.display = "block";
-        isValid = false
-    }
-    //End of remove
 
     let count = 0;
     for (let i = 0; i < urgency.length; i++) {
