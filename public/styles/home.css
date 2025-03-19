@@ -8,8 +8,22 @@
     display: flex;
 }
 
+select,
+button {
+    padding: 1%;
+}
+
+button,
+label {
+    font-weight: bold;
+}
+
 #home {
     background-color: gainsboro;
+}
+
+#calendar {
+    margin: 3%;
 }
 
 /*Large screen styles*/
@@ -25,12 +39,13 @@
         flex-direction: column;
         justify-content: center;
         border: 2px, solid, black;
-        padding: 5%;
+        padding: 3%;
         width: 30%;
     }
 
     label,
-    span {
+    span,
+    select {
         margin: 2%;
     }
 }
@@ -53,7 +68,8 @@
     }
 
     label,
-    span {
+    span,
+    select {
         margin: 1%;
     }
 
