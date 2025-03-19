@@ -27,13 +27,15 @@ What this website does is allows you to enter in tasks into a calender via a pag
 
 * Set up database, connection, data insertion
 
+* Made the README
+
 ## Timmy
 
 * Installed dependencies
 
-* Set up defualt and thank-you routes
+* Set up default and thank-you routes
 
-* Added git ingnore
+* Added git ignore
 
 * Created server side validation
 
