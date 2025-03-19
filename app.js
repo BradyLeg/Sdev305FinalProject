@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 //Render Calendar
 app.get('/calendar', async (req, res) => {
     const conn = await connect();
-    const tasks = await conn.query("SELECT * FROM task");
+    const tasks = await conn.query("SELECT * FROM item");
     res.render('calendar', { userTasks: tasks });
 });
 
@@ -72,9 +72,6 @@ app.post('/thank-you', async (req, res) => {
         task: req.body.task,
         startday: req.body.assignedday,
         tasklength: Number(req.body.tasklength),
-        startdate: req.body.startdate,
-        enddate: req.body.enddate,
-        tasktime: req.body.tasktime,
         description: req.body.description,
         urgency: req.body.urgency
     };
@@ -94,24 +91,22 @@ app.post('/thank-you', async (req, res) => {
 
     const conn = await connect();
 
-    const insertQuery = await conn.query(`INSERT INTO task(
+    const insertQuery = await conn.query(`INSERT INTO item(
         fname, 
         lname,
-        task,
         description,
-        startdate,
-        enddate,
-        tasktime,
-        urgency)
-        VALUES (?,?,?,?,?,?,?,?)`,
+        assignedday,
+        days,
+        urgency,
+        task)
+        VALUES (?,?,?,?,?,?,?)`,
         [userTasks.fname,
         userTasks.lname,
-        userTasks.task,
         userTasks.description,
-        userTasks.startdate,
-        userTasks.enddate,
-        userTasks.tasktime,
-        userTasks.urgency]);
+        userTasks.assignedday,
+        userTasks.days,
+        userTasks.urgency,
+        userTasks.task]);
 
     res.render('thank-you', { userTasks });
 
@@ -123,7 +118,7 @@ app.get('/admin', async (req, res) => {
 
     const conn = await connect();
 
-    const tasks = await conn.query('SELECT * FROM task;');
+    const tasks = await conn.query('SELECT * FROM item;');
 
     console.log(tasks);
 
