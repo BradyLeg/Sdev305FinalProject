@@ -16,8 +16,7 @@
             <div class="day">
                 <h3><%= day %></h3>
                 <% userTasks.forEach(task => { %>
-                    <% let taskDate = new Date(task.startdate); %>
-                    <% if (days[taskDate.getDay()] === day) { %>
+                    <% if ((task.assignedday || "").toLowerCase() === day.toLowerCase()) { %>
                         <div class="task-container">
                             <!-- Task Name and Show Details Button -->
                             <p class="task-item">
@@ -27,9 +26,10 @@
                             
                             <!-- Hidden Task Details -->
                             <div class="task-details">
+                                <p><strong>Task:</strong> <%= task.task %></p>
+                                <p><strong>Start Date:</strong> <%= task.assignedday %></p>
+                                <p><strong>Perdicted Days to Complete:</strong> <%= task.days %></p>
                                 <p><strong>Description:</strong> <%= task.description || "No details provided" %></p>
-                                <p><strong>Start Date:</strong> <%= task.startdate %></p>
-                                <p><strong>End Date:</strong> <%= task.enddate %></p>
                                 <p><strong>Urgency:</strong> <%= task.urgency %></p>
                             </div>
                         </div>
