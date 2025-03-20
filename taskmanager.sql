@@ -10,6 +10,7 @@ CREATE TABLE item(
     days INT,
     urgency VARCHAR(255),
     created_at DATETIME DEFAULT NOW(),
+    task VARCHAR(255),
     
     PRIMARY KEY(id)
 );
