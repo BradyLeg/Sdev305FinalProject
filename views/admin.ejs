@@ -30,8 +30,8 @@
                         <p><strong>User-Name: </strong><%= tasks[i].fname %> <%= tasks[i].lname %></p>
                         <p><strong>User-Task: </strong><%= tasks[i].task %></p>
                         <p><strong>User-Task-Description: </strong><br><%= tasks[i].description %></p>
-                        <p><strong>User-Start-Date: </strong><%= new Date(tasks[i].startdate).toLocaleDateString("en-US") %></p>
-                        <p><strong>User-End-Date: </strong><%= new Date(tasks[i].enddate).toLocaleDateString("en-US") %></p>
+                        <p><strong>Assigned Day: </strong><%= tasks[i].assignedday %></p>
+                        <p><strong>Length (Days) : </strong><%= tasks[i].days %></p>
                         <p><strong>User-Task-Time: </strong><%= tasks[i].tasktime %></p>
                         <p><strong>User-Urgency-Level: </strong><%= tasks[i].urgency %></p>
                         <p><strong>Time-Of-Creation: </strong><%= new Date(tasks[i].created_at).toLocaleDateString("en-US") %></p>
